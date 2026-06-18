@@ -1,9 +1,13 @@
 .header{
     height: 34vw;
     margin: 30px auto;
-    background: url('/header_img.png') no-repeat;
-    background-size:contain;
+    background: url('/header_img.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
     position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
 }
 .header-contents{
     position: absolute;
@@ -14,25 +18,41 @@
     max-width: 50%;
     bottom: 10%;
     left: 6vw;
-    animation: fadeIn 3s;
+    background: rgba(0, 0, 0, 0.55);
+    padding: 2.5vw 3.5vw;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: fadeIn 1.5s ease-out;
 }
 .header-contents h2{
-    font-weight:500;
+    font-weight: 600;
     color: white;
-    font-size: max(4.5vw,22px);
+    font-size: max(3.5vw,22px);
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 .header-contents p{
-    color: white;
+    color: rgba(255, 255, 255, 0.9);
     font-size: 1vw;
+    margin: 0;
+    line-height: 1.5;
 }
 .header-contents button{
     border: none;
-    color: #747474;
-    font-weight: 500;
+    color: #ff6347;
+    font-weight: 600;
     padding: 1vw 2.3vw;
     background: white;
     font-size: max(1vw,13px);
     border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.header-contents button:hover {
+    background: #ff6347;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 99, 71, 0.3);
 }
 @media (max-width:1050px) {
     .header{
@@ -45,6 +65,7 @@
 @media(max-width:750px){
     .header-contents{
         max-width: 55%;
+        padding: 4vw;
     }
     .header-contents p{
        display: none;

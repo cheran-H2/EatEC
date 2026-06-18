@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Pacifico&display=swap');
 
 * {
   margin: 0;
@@ -6,6 +6,26 @@
   box-sizing: border-box;
   font-family: 'Outfit', sans-serif;
   scroll-behavior: smooth;
+}
+
+.logo-text {
+  font-family: 'Pacifico', cursive;
+  font-size: 32px;
+  color: #49557E;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.2s ease;
+}
+
+.logo-text:hover {
+  transform: scale(1.05);
+}
+
+.logo-text span {
+  color: #FF4C24;
 }
 
 body {
