@@ -1,0 +1,5 @@
+admin/.vite/
+node_modules/
+dist/
+build/
+target/
