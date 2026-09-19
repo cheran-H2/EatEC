@@ -5,7 +5,7 @@ import userModel from "../models/userModel.js";
 
 //create token
 const createToken = (id) => {
-    return jwt.sign({id}, process.env.JWT_SECRET);
+    return jwt.sign({id}, process.env.JWT_SECRET || "default_jwt_secret_key");
 }
 
 //login user
@@ -28,7 +28,7 @@ const loginUser = async (req,res) => {
         res.json({success:true,token})
     } catch (error) {
         console.log(error);
-        res.json({success:false,message:"Error"})
+        res.json({success:false,message: error.message || "Error"})
     }
 }
 
@@ -61,7 +61,7 @@ const registerUser = async (req,res) => {
 
     } catch(error){
         console.log(error);
-        res.json({success:false,message:"Error"})
+        res.json({success:false,message: error.message || "Error"})
     }
 }
 

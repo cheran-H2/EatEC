@@ -9,25 +9,33 @@ const List = () => {
   const [list, setList] = useState([]);
 
   const fetchList = async () => {
-    const response = await axios.get(`${url}/api/food/list`)
-    if (response.data.success) {
-      setList(response.data.data);
-    }
-    else {
-      toast.error("Error")
+    try {
+      const response = await axios.get(`${url}/api/food/list`)
+      if (response.data.success) {
+        setList(response.data.data);
+      }
+      else {
+        toast.error(response.data.message || "Error fetching list")
+      }
+    } catch (error) {
+      toast.error(error.message || "Error connecting to server");
     }
   }
 
   const removeFood = async (foodId) => {
-    const response = await axios.post(`${url}/api/food/remove`, {
-      id: foodId
-    })
-    await fetchList();
-    if (response.data.success) {
-      toast.success(response.data.message);
-    }
-    else {
-      toast.error("Error")
+    try {
+      const response = await axios.post(`${url}/api/food/remove`, {
+        id: foodId
+      })
+      await fetchList();
+      if (response.data.success) {
+        toast.success(response.data.message);
+      }
+      else {
+        toast.error(response.data.message || "Error removing food")
+      }
+    } catch (error) {
+      toast.error(error.message || "Error removing food");
     }
   }
 
